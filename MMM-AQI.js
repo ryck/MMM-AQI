@@ -7,7 +7,7 @@
 Module.register("MMM-AQI", {
 	defaults: {
     token: "",
-    updateInterval: 60 * 60 * 1000, // Every hour.
+    updateInterval: 30 * 60 * 1000, // Every half hour.
     initialLoadDelay: 0, // No delay/
     animationSpeed: 1000, // One second.
 		debug: false
