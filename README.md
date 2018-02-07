@@ -28,7 +28,7 @@ Here is an example of an entry in `config.js`
 {
 	module: 'MMM-AQI',
 	position: 'bottom_left',
-	header: 'Bus Arrivals',
+	header: 'Air Quality Index (AQI)',
 	config: {
 		token: "",
 		animationSpeed: 1000,
