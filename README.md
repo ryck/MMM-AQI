@@ -2,7 +2,7 @@
 
 This a module for the [MagicMirror](https://github.com/MichMich/MagicMirror).
 
-MagigMirror module to get the Air Quality Index (AQI) using AirNow API/
+MagigMirror module to get the Air Quality Index (AQI) using AirNow API.
 
 ![](screenshots/screenshot_01.png)
 
