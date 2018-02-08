@@ -38,7 +38,7 @@ Here is an example of an entry in `config.js`
 				token: "demo",
 				city: "here",
 				iaqi: true,
-	    		updateInterval: 30 * 60 * 1000, // Every half hour.
+				updateInterval: 30 * 60 * 1000, // Every half hour.
 				initialLoadDelay: 0,
 				animationSpeed: 1000,
 				debug: false
