@@ -7,6 +7,8 @@
 Module.register("MMM-AQI", {
 	defaults: {
     token: "",
+    city: "here",
+    iaqi: true;,
     updateInterval: 30 * 60 * 1000, // Every half hour.
     initialLoadDelay: 0, // No delay/
     animationSpeed: 1000, // One second.
@@ -19,7 +21,7 @@ Module.register("MMM-AQI", {
     this.result = null;
     this.scheduleUpdate(this.config.initialLoadDelay);
     this.updateTimer = null;
-    this.apiBase = "https://api.waqi.info/feed/here/";
+    this.apiBase = "https://api.waqi.info/feed/" + this.config.city + "/";
     this.url = encodeURI(this.apiBase + this.getParams());
     if(this.config.debug) {
       Log.info(this.url);
@@ -63,96 +65,141 @@ Module.register("MMM-AQI", {
 
     // Start building table.
     var dataTable = document.createElement("table");
-    dataTable.className = "small";
+    dataTable.className = "small data";
 
-    var tempRow = document.createElement("tr");;
-    var humidRow = document.createElement("tr");;
 
-    if (this.temperature != null && this.humidity != null) {
-      var temperatureCell = document.createElement("td");
-      temperatureCell.className = "data temperature ";
 
-      // Get a 40C ratio value to set the thermometer icon scale.
-      var temperatureRatio = this.temperature / this.config.relativeScale;
+    if (this.result.data != null) {
+    	console.log(this.result.aqi);
+    	var aqiRow = document.createElement("tr");
+    	// console.log(this.config.header);
 
-      var degreeLabel = "";
-      switch (this.config.units ) {
-        case "metric":
-          degreeLabel = "C";
-          break;
-        case "imperial":
-          degreeLabel = "F";
-          break;
-        case "default":
-          degreeLabel = "C";
-          break;
-      }
+    	var aqi = this.result.data.aqi;
+    	// aqi = 300;
+    	var city = this.result.data.city.name;
 
-      // Asign themomether icon.
+      // Asign aqi class name.
+      var aqiClass = "";
       switch (true) {
-        case temperatureRatio < 0:
+        case aqi <= 0:
           if(this.config.debug) {
-            Log.info("thermometer-empty " + this.temperature + " - " + temperatureRatio);
+            Log.info("empty" + " - " + aqi);
           }
-          temperatureCell.className += "thermometer-empty";
+          aqiClass += "empty";
           break;
-        case temperatureRatio >= 0 && temperatureRatio < 0.25:
+        case aqi > 0 && aqi < 51:
           if(this.config.debug) {
-            Log.info("thermometer-quarter " + this.temperature + " - " + temperatureRatio);
+            Log.info("good" + " - " + aqi);
           }
-          temperatureCell.className += "thermometer-quarter";
+          aqiClass += "good";
           break;
-        case temperatureRatio >= 0.25 && temperatureRatio < 0.5:
+        case aqi >= 51 && aqi < 101:
           if(this.config.debug) {
-            Log.info("thermometer-half " + this.temperature + " - " + temperatureRatio);
+            Log.info("moderate" + " - " + aqi);
           }
-          temperatureCell.className += "thermometer-half";
+          aqiClass += "moderate";
           break;
-        case temperatureRatio >= 0.5 && temperatureRatio < 0.75:
+        case aqi >= 101 && aqi < 151:
           if(this.config.debug) {
-            Log.info("thermometer-three-quarters " + this.temperature + " - " + temperatureRatio);
+            Log.info("unhealthy-sensitive" + " - " + aqi);
           }
-          temperatureCell.className += "thermometer-three-quarters";
+          aqiClass += "unhealthy-sensitive";
           break;
-        case temperatureRatio > 0.75:
+        case aqi >= 151 && aqi < 201:
           if(this.config.debug) {
-            Log.info("thermometer-full " + this.temperature + " - " + temperatureRatio);
+            Log.info("unhealthy" + " - " + aqi);
           }
-          temperatureCell.className += "thermometer-full";
+          aqiClass += "unhealthy";
+          break;
+        case aqi >= 201 && aqi < 300:
+          if(this.config.debug) {
+            Log.info("very-unhealthy" + " - " + aqi);
+          }
+          aqiClass += "very-unhealthy";
+          break;
+        case aqi >= 300:
+          if(this.config.debug) {
+            Log.info("hazardous" + " - " + aqi);
+          }
+          aqiClass += "hazardous";
           break;
       }
 
-      temperatureCell.innerHTML = " " + this.temperature + " " + degreeLabel;
-      tempRow.appendChild(temperatureCell);
+      var cityCell = document.createElement("td");
+      cityCell.className = "city " + aqiClass;
+      cityCell.innerHTML = city;
+      aqiRow.appendChild(cityCell);
 
-      var humidityCell = document.createElement("td");
-      humidityCell.className = "data humidity";
-      humidityCell.innerHTML = " " + this.humidity + " %";
-      humidRow.appendChild(humidityCell);
+      var aqiCell = document.createElement("td");
+      aqiCell.className = "aqi " + aqiClass;
+      aqiCell.innerHTML = aqi;
+      aqiRow.appendChild(aqiCell);
 
-      dataTable.appendChild(tempRow);
-      dataTable.appendChild(humidRow);
+      dataTable.appendChild(aqiRow);
+
+
+      if (this.config.iaqi) {
+	      var iaqi = this.result.data.iaqi;
+	      var iaqiRow = "";
+	      var iaqiCityCell = "";
+	      var iaqiAQICell = "";
+
+				Object.keys(iaqi).forEach(function(key){
+				  console.log(key + '=' + iaqi[key].v);
+	    		iaqiRow = document.createElement("tr");
+
+		      iaqiCityCell = document.createElement("td");
+		      iaqiCityCell.className = "xsmall iaqi key " + aqiClass;
+		      iaqiCityCell.innerHTML = key;
+		      iaqiRow.appendChild(iaqiCityCell);
+
+		      iaqiAQICell = document.createElement("td");
+		      iaqiAQICell.className = "xsmall iaqi value " + aqiClass;
+		      iaqiAQICell.innerHTML = iaqi[key].v;
+		      iaqiRow.appendChild(iaqiAQICell);
+	      	dataTable.appendChild(iaqiRow);
+				});
+			}
     } else {
       var row1 = document.createElement("tr");
       dataTable.appendChild(row1);
 
       var messageCell = document.createElement("td");
-      messageCell.innerHTML = "No data returned";
+      messageCell.innerHTML = this.result.message;
       messageCell.className = "bright";
       row1.appendChild(messageCell);
+
+			var row2 = document.createElement("tr");
+			dataTable.appendChild(row2);
+
+			var timeCell = document.createElement("td");
+			timeCell.innerHTML = this.result.timestamp;
+			timeCell.className = "bright xsmall";
+			row2.appendChild(timeCell);
     }
     wrapper.appendChild(dataTable);
     return wrapper;
   },
   processAQI: function(result) {
-    if (typeof result !== "undefined" && result !== null) {
+		this.result = {};
+			this.result.timestamp = moment().format("LLL");
+    if (typeof result !== "undefined" && result != null) {
       if(this.config.debug) {
         Log.info(result);
       }
-      this.loaded = true;
-      this.result = result;
-      this.updateDom(this.config.animationSpeed);
-    }
+      this.result.data = result.data;
+		} else {
+			console.log("ERROR");
+			//No data returned - set error message
+			this.result.message = "No data returned";
+			this.result.data = null;
+			if(this.config.debug) {
+				Log.error("No data returned");
+				Log.error(this.result);
+			}
+		}
+    this.updateDom(this.config.animationSpeed);
+    this.loaded = true;
   },
 	getParams: function() {
 		var params = "?";
@@ -181,8 +228,8 @@ Module.register("MMM-AQI", {
 	// Process data returned
 	socketNotificationReceived: function(notification, payload) {
 	    if (notification === "AQI_DATA" && payload.url === this.url) {
-		this.processAQI(payload.data);
-		this.scheduleUpdate(this.config.updateInterval);
+				this.processAQI(payload.data);
+				this.scheduleUpdate(this.config.updateInterval);
 	    }
 	  }
 });
