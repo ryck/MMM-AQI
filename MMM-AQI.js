@@ -36,7 +36,7 @@ Module.register("MMM-AQI", {
 	},
 
 	getStyles: function() {
-		return ["MMM-AQI.css", "font-awesome.css", "weather-icons.css"];
+		return ["MMM-AQI.css", "weather-icons.css"];
 	},
 	// Define required scripts.
 	getScripts: function() {
