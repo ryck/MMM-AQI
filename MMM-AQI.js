@@ -8,7 +8,7 @@ Module.register("MMM-AQI", {
 	defaults: {
     token: "",
     city: "here",
-    iaqi: true;,
+    iaqi: true,
     updateInterval: 30 * 60 * 1000, // Every half hour.
     initialLoadDelay: 0, // No delay/
     animationSpeed: 1000, // One second.
@@ -70,12 +70,8 @@ Module.register("MMM-AQI", {
 
 
     if (this.result.data != null) {
-    	console.log(this.result.aqi);
     	var aqiRow = document.createElement("tr");
-    	// console.log(this.config.header);
-
     	var aqi = this.result.data.aqi;
-    	// aqi = 300;
     	var city = this.result.data.city.name;
 
       // Asign aqi class name.
@@ -182,14 +178,13 @@ Module.register("MMM-AQI", {
   },
   processAQI: function(result) {
 		this.result = {};
-			this.result.timestamp = moment().format("LLL");
+		this.result.timestamp = moment().format("LLL");
     if (typeof result !== "undefined" && result != null) {
       if(this.config.debug) {
         Log.info(result);
       }
       this.result.data = result.data;
 		} else {
-			console.log("ERROR");
 			//No data returned - set error message
 			this.result.message = "No data returned";
 			this.result.data = null;
