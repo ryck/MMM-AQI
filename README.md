@@ -2,7 +2,7 @@
 
 This a module for the [MagicMirror](https://github.com/MichMich/MagicMirror).
 
-MagigMirror module to get the Air Quality Index (AQI) using AirNow API.
+MagigMirror module to get the Air Quality Index (AQI) using the World Air Quality Index project API.
 
 ![](screenshots/screenshot_01.png)
 
@@ -51,6 +51,7 @@ Here is an example of an entry in `config.js`
 
 
 ## Thanks To...
+- The [World Air Quality Index](http://aqicn.org/) project for providing the API.
 - [Nick Wootton](https://github.com/MichMich) for the [MMM-UKLiveBusStopInfo](https://github.com/nwootton/MMM-UKLiveBusStopInfo) module, which I used as reference.
 - [Nigel Daniels](https://github.com/nigel-daniels/) for the [MMM-Tube-Status](https://github.com/nigel-daniels/MMM-Tube-Status) module, which I used as reference.
 - [Michael Teeuw](https://github.com/MichMich) for the [MagicMirror2](https://github.com/MichMich/MagicMirror/) framework that made this module possible.
