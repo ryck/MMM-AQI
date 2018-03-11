@@ -35,7 +35,7 @@ Here is an example of an entry in `config.js`
 			position: 'bottom_left',
 			header: 'Air Quality Index (AQI)',
 			config: {
-				token: "demo",
+				token: "",
 				city: "here",
 				iaqi: true,
 				updateInterval: 30 * 60 * 1000, // Every half hour.
@@ -45,6 +45,14 @@ Here is an example of an entry in `config.js`
 			}
 		},
 ```
+
+## Find you city
+The API is quite picky with the cities, so yoiur best option is to use the keyword _here_ or an id.
+To find your id, just enter this URL in your browser:
+
+[https://api.waqi.info/search/?token=TOKEN&keyword=CITY](https://api.waqi.info/search/?token=TOKEN&keyword=CITY)
+
+**Note:** You need to replace _TOKEN_ and _CITY_ for your token (the same one you are using in the module works) and the city you are looking for, repectively.
 
 ## Dependencies
 - [request](https://www.npmjs.com/package/request) (installed via `npm install`)

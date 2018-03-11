@@ -8,17 +8,14 @@
   content: '\f062';
   padding-right: 5px;
 }
-
 .city.unhealthy-sensitive:before,
 .city.unhealthy:before,
 .city.very-unhealthy:before {
   content: '\f074';
 }
-
 .city.hazardous:before {
   content: '\f071';
 }
-
 .aqi.good {
 	color: #009966;
 }
