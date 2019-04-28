@@ -1,36 +1,36 @@
 .city,
 .aqi,
 .iaqi {
-	text-align: right;
+  text-align: right;
 }
 .city:before {
-  font-family: 'weathericons';
-  content: '\f062';
+  font-family: "weathericons";
+  content: "\f062";
   padding-right: 5px;
 }
 .city.unhealthy-sensitive:before,
 .city.unhealthy:before,
 .city.very-unhealthy:before {
-  content: '\f074';
+  content: "\f074";
 }
 .city.hazardous:before {
-  content: '\f071';
+  content: "\f071";
 }
 .aqi.good {
-	color: #009966;
+  color: #009966;
 }
 .aqi.moderate {
-	color: #ffde33;
+  color: #ffde33;
 }
 .aqi.unhealthy-sensitive {
-	color: #ff9933;
+  color: #ff9933;
 }
 .aqi.unhealthy {
-	color: #cc0033;
+  color: #cc0033;
 }
 .aqi.very-unhealthy {
-	color: #660099;
+  color: #660099;
 }
 .aqi.hazardous {
-	color: #7e0023;
+  color: #7e0023;
 }
