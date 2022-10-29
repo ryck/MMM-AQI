@@ -10,10 +10,10 @@ Module.register("MMM-AQI", {
 		city: "here",
 		iaqi: true,
 		updateInterval: 30 * 60 * 1000, // Every half hour.
+		overrideCityDisplayName: null,
 		initialLoadDelay: 0, // No delay/
 		animationSpeed: 1000, // One second.
-		debug: false,
-		overrideCityDisplayName: null
+		debug: false
 	},
 	start: function () {
 		Log.info("Starting module: " + this.name);
