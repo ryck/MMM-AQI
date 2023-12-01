@@ -22,6 +22,7 @@ The entry in `config.js` can include the following options:
 |`city`|**Required** Name of the city (eg Beijing), or id (eg @7397). You can also use the keyword `here` to use geolocation to get your city<br>**Type:** `string`<br>**Possible values:** `here`  for geolocation, `nameOfCity` or `@id`<br> **Default value:**  `here`|
 | `iaqi`|Display individual AQI for all pollutants (PM2.5, PM10, NO2, CO, SO2, Ozone)<br>**Type:** `boolean`<br>**Possible values:** `true` or `false`<br> **Default value:**  `true`|
 |`updateInterval `|How often the data is updated. (Milliseconds)<br>**Type:** `integer`<br>**Default value:** `30 * 60 * 1000` (Half hour)|
+|`overrideCityDisplayName `|Override the city's display name with this value.<br>**Type:** `string` or `null`<br>**Default value:** `null`|
 | `initialLoadDelay`|The initial delay before loading. If you have multiple modules that use the same API key, you might want to delay one of the requests. (Milliseconds)<br>**Type:** `integer`<br>**Possible values:** `1000` - `5000` <br> **Default value:**  `0`|
 | `animationSpeed`|Speed of the update animation. (Milliseconds)<br>**Type:** `integer`<br>**Possible values:**`0` - `5000` <br> **Default value:** `1000` (1 second)|
 | `debug`| Show debug information.<br>**Type:** `boolean`<br>**Possible values:** `true` or `false`  <br> **Default value:** `false`|

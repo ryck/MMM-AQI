@@ -10,10 +10,10 @@ Module.register("MMM-AQI", {
 		city: "here",
 		iaqi: true,
 		updateInterval: 30 * 60 * 1000, // Every half hour.
+		overrideCityDisplayName: null,
 		initialLoadDelay: 0, // No delay/
 		animationSpeed: 1000, // One second.
 		debug: false
-
 	},
 	start: function () {
 		Log.info("Starting module: " + this.name);
@@ -70,7 +70,7 @@ Module.register("MMM-AQI", {
 		if (this.result.data != null) {
 			var aqiRow = document.createElement("tr");
 			var aqi = this.result.data.aqi;
-			var city = this.result.data.city.name;
+			var city = this.config.overrideCityDisplayName ?? this.result.data.city.name;
 
 			// Asign aqi class name.
 			var aqiClass = "";
