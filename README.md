@@ -1,15 +1,13 @@
 # MMM-AQI
 
-This a module for the [MagicMirror](https://github.com/MichMich/MagicMirror).
+**MMM-AQI** is a module for [MagicMirror²](https://github.com/MagicMirrorOrg/MagicMirror) to display the Air Quality Index (AQI) using the World Air Quality Index project API.
 
-MagicMirror module to get the Air Quality Index (AQI) using the World Air Quality Index project API.
-
-![](screenshots/screenshot_01.png)
+![screenshot](screenshots/screenshot_01.png)
 
 ## Installation
 
 ```bash
-git clone https://github.com/ryck/MMM-AQI.git
+git clone https://github.com/ryck/MMM-AQI
 cd MMM-AQI
 npm install
 ```
@@ -20,7 +18,7 @@ The entry in `config.js` can include the following options:
 
 | Option                     | Description                                                                                                                                                                                                                                                     |
 | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `token`                    | **Required** Your private API token ([see aqicn.org/data-platform/token/](http://aqicn.org/data-platform/token/))<br>**Type:** `string`                                                                                                                         |
+| `token`                    | **Required** Your private API token ([see aqicn.org/data-platform/token/](https://aqicn.org/data-platform/token/))<br>**Type:** `string`                                                                                                                         |
 | `city`                     | **Required** Name of the city (eg Beijing), or id (eg @7397). You can also use the keyword `here` to use geolocation to get your city<br>**Type:** `string`<br>**Possible values:** `here` for geolocation, `nameOfCity` or `@id`<br> **Default value:** `here` |
 | `iaqi`                     | Display individual AQI for all pollutants (PM2.5, PM10, NO2, CO, SO2, Ozone)<br>**Type:** `boolean`<br>**Possible values:** `true` or `false`<br> **Default value:** `true`                                                                                     |
 | `updateInterval `          | How often the data is updated. (Milliseconds)<br>**Type:** `integer`<br>**Default value:** `30 * 60 * 1000` (Half hour)                                                                                                                                         |
@@ -31,7 +29,7 @@ The entry in `config.js` can include the following options:
 
 Here is an example of an entry in `config.js`
 
-```
+```js
 		{
 			module: 'MMM-AQI',
 			position: 'bottom_left',
@@ -63,8 +61,8 @@ To find your id, just enter this URL in your browser:
 
 ## Thanks To...
 
-- The [World Air Quality Index](http://aqicn.org/) project for providing the API.
+- The [World Air Quality Index](https://aqicn.org/) project for providing the API.
 - [Nick Wootton](https://github.com/MichMich) for the [MMM-UKLiveBusStopInfo](https://github.com/nwootton/MMM-UKLiveBusStopInfo) module, which I used as reference.
 - [Nigel Daniels](https://github.com/nigel-daniels/) for the [MMM-Tube-Status](https://github.com/nigel-daniels/MMM-Tube-Status) module, which I used as reference.
-- [Michael Teeuw](https://github.com/MichMich) for the [MagicMirror2](https://github.com/MichMich/MagicMirror/) framework that made this module possible.
+- [Michael Teeuw](https://github.com/MichMich) for the [MagicMirror²](https://github.com/MagicMirrorOrg/MagicMirror/) framework that made this module possible.
 - [Transport for London](https://tfl.gov.uk) for the guides and information they publish on their API.
