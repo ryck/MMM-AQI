@@ -4,18 +4,19 @@
  * MIT Licensed.
  */
 
-var NodeHelper = require("node_helper");
+const Log = require("logger");
+const NodeHelper = require("node_helper");
 
 module.exports = NodeHelper.create({
-  start: function () {
-    console.log("MMM-AQI helper started ...");
+  start () {
+    Log.log("MMM-AQI helper started ...");
   },
   /* getAQIData()
    * Requests new data from AirNow API.
    * Sends data back via socket on succesfull response.
    */
-  getAQIData: async function (url) {
-    var self = this;
+  async getAQIData (url) {
+    const self = this;
 
     try {
       const response = await fetch(url);
@@ -26,15 +27,15 @@ module.exports = NodeHelper.create({
           url,
         });
       } else {
-        self.sendSocketNotification("AQI_DATA", { data: null, url });
+        self.sendSocketNotification("AQI_DATA", {data: null, url});
       }
     } catch (error) {
-      self.sendSocketNotification("AQI_DATA", { data: null, url });
+      self.sendSocketNotification("AQI_DATA", {data: null, url});
     }
   },
 
-  //Subclass socketNotificationReceived received.
-  socketNotificationReceived: function (notification, payload) {
+  // Subclass socketNotificationReceived received.
+  socketNotificationReceived (notification, payload) {
     if (notification === "GET_AQI") {
       this.getAQIData(payload.url);
     }
