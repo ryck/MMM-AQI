@@ -1,6 +1,4 @@
-/* TfL Bus Atrival Predictions */
-
-/* Magic Mirror
+/* MagicMirror²
  * Module: MMM-AQI
  * By Ricardo Gonzalez
  * MIT Licensed.
