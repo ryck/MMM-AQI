@@ -5,8 +5,12 @@
 }
 .city:before {
   font-family: "weathericons";
-  content: "\f062";
+  content: "\f041";
   padding-right: 5px;
+}
+
+.city.moderate:before {
+  content: "\f062";
 }
 .city.unhealthy-sensitive:before,
 .city.unhealthy:before,

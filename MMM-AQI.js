@@ -1,6 +1,4 @@
 /* Magic Mirror Module: MMM-AQI
- * Version: 1.1.0
- *
  * By Ricardo Gonzalez https://github.com/ryck/MMM-AQI
  * MIT Licensed.
  */
