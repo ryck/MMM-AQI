@@ -1,5 +1,5 @@
 {
-  "name": "MMM-AQI",
+  "name": "mmm-aqi",
   "version": "1.1.1",
   "description": "MagicMirror² module to get real-time Air Quality Index (AQI).",
   "repository": {
@@ -14,7 +14,7 @@
     "AQI",
     "module"
   ],
-  "author": "Nigel Daniels",
+  "author": "Ricardo González",
   "contributors": [
     "https://github.com/ryck/MMM-AQI/graphs/contributors"
   ],
