@@ -7,9 +7,8 @@
 ## Installation
 
 ```bash
+cd ~/MagicMirror/modules
 git clone https://github.com/ryck/MMM-AQI
-cd MMM-AQI
-npm install
 ```
 
 ## Config
@@ -46,18 +45,14 @@ Here is an example of an entry in `config.js`
 		},
 ```
 
-## Find you city
+## Find your city
 
-The API is quite picky with the cities, so yoiur best option is to use the keyword _here_ or an id.
+The API is quite picky with the cities, so your best option is to use the keyword _here_ or an id.
 To find your id, just enter this URL in your browser:
 
 [https://api.waqi.info/search/?token=TOKEN&keyword=CITY](https://api.waqi.info/search/?token=TOKEN&keyword=CITY)
 
 **Note:** You need to replace _TOKEN_ and _CITY_ for your token (the same one you are using in the module works) and the city you are looking for, repectively.
-
-## Dependencies
-
-- [axios](https://www.npmjs.com/package/axios) (installed via `npm install`)
 
 ## Thanks To...
 

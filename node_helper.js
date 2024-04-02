@@ -5,7 +5,6 @@
  */
 
 var NodeHelper = require("node_helper");
-var axios = require("axios");
 
 module.exports = NodeHelper.create({
   start: function () {
@@ -18,17 +17,18 @@ module.exports = NodeHelper.create({
   getAQIData: async function (url) {
     var self = this;
 
-    const { data, status, statusText } = await axios.get(url);
-    if (status == 200) {
-      if (statusText == "error") {
-        self.sendSocketNotification("AQI_DATA", { data: null, url });
-      } else {
+    try {
+      const response = await fetch(url);
+      if (response.ok) {
+        const data = await response.json();
         self.sendSocketNotification("AQI_DATA", {
           data,
           url,
         });
+      } else {
+        self.sendSocketNotification("AQI_DATA", { data: null, url });
       }
-    } else {
+    } catch (error) {
       self.sendSocketNotification("AQI_DATA", { data: null, url });
     }
   },
