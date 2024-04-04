@@ -1,7 +1,7 @@
 {
-  "name": "MMM-AQI",
-  "version": "1.1.1",
-  "description": "MagicMirror 2 module to get real-time Air Quality Index (AQI).",
+  "name": "mmm-aqi",
+  "version": "1.2.0",
+  "description": "MagicMirror² module to get real-time Air Quality Index (AQI).",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ryck/MMM-AQI"
@@ -14,7 +14,7 @@
     "AQI",
     "module"
   ],
-  "author": "Nigel Daniels",
+  "author": "Ricardo González",
   "contributors": [
     "https://github.com/ryck/MMM-AQI/graphs/contributors"
   ],
@@ -22,8 +22,5 @@
   "bugs": {
     "url": "https://github.com/ryck/MMM-AQI/issues"
   },
-  "homepage": "https://github.com/ryck/MMM-AQI#readme",
-  "dependencies": {
-    "axios": "^1.6.8"
-  }
+  "homepage": "https://github.com/ryck/MMM-AQI#readme"
 }
