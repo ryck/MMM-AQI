@@ -116,7 +116,4 @@ To find your id, just enter this URL in your browser:
 ## Thanks To...
 
 - The [World Air Quality Index](https://aqicn.org/) project for providing the API.
-- [Nick Wootton](https://github.com/MichMich) for the [MMM-UKLiveBusStopInfo](https://github.com/nwootton/MMM-UKLiveBusStopInfo) module, which I used as reference.
-- [Nigel Daniels](https://github.com/nigel-daniels/) for the [MMM-Tube-Status](https://github.com/nigel-daniels/MMM-Tube-Status) module, which I used as reference.
 - [Michael Teeuw](https://github.com/MichMich) for the [MagicMirror²](https://github.com/MagicMirrorOrg/MagicMirror/) framework that made this module possible.
-- [Transport for London](https://tfl.gov.uk) for the guides and information they publish on their API.
