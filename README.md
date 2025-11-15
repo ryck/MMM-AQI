@@ -1,48 +1,107 @@
 # MMM-AQI
 
-**MMM-AQI** is a module for [MagicMirror²](https://github.com/MagicMirrorOrg/MagicMirror) to display the Air Quality Index (AQI) using the World Air Quality Index project API.
+**MMM-AQI** is a module for [MagicMirror²](https://github.com/MagicMirrorOrg/MagicMirror) to display the Air Quality Index (AQI) using the [World Air Quality Index](https://aqicn.org/json-api/doc/) project API.
 
-![screenshot](screenshots/screenshot_01.png)
+<table>
+	<tr>
+		<td>
+			<img src="screenshots/screenshot_01.png" alt="Default layout" /><br>
+			<sub>
+				<pre><code>config: {
+	iaqi: false,
+	weather: false,
+	showLastUpdate: false
+}</code></pre>
+			</sub>
+		</td>
+		<td>
+			<img src="screenshots/screenshot_02.png" alt="IAQI breakdown" /><br>
+			<sub>
+				<pre><code>config: {
+	iaqi: true,
+	weather: false,
+	showLastUpdate: false
+}</code></pre>
+			</sub>
+		</td>
+	</tr>
+</table>
+
+<table>
+	<tr>
+		<td>
+			<img src="screenshots/screenshot_03.png" alt="Weather metrics" /><br>
+			<sub>
+				<pre><code>config: {
+	iaqi: true,
+	weather: true,
+	showLastUpdate: false
+}</code></pre>
+			</sub>
+		</td>
+		<td>
+			<img src="screenshots/screenshot_04.png" alt="Full on" /><br>
+			<sub>
+				<pre><code>config: {
+	iaqi: true,
+	weather: true,
+	showLastUpdate: true
+}</code></pre>
+			</sub>
+		</td>
+	</tr>
+</table>
 
 ## Installation
 
 ```bash
 cd ~/MagicMirror/modules
 git clone https://github.com/ryck/MMM-AQI
+cd MMM-AQI
+npm install
 ```
 
 ## Config
 
 The entry in `config.js` can include the following options:
 
-| Option                     | Description                                                                                                                                                                                                                                                     |
-| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `token`                    | **Required** Your private API token ([see aqicn.org/data-platform/token/](https://aqicn.org/data-platform/token/))<br>**Type:** `string`                                                                                                                         |
-| `city`                     | **Required** Name of the city (eg Beijing), or id (eg @7397). You can also use the keyword `here` to use geolocation to get your city<br>**Type:** `string`<br>**Possible values:** `here` for geolocation, `nameOfCity` or `@id`<br> **Default value:** `here` |
-| `iaqi`                     | Display individual AQI for all pollutants (PM2.5, PM10, NO2, CO, SO2, Ozone)<br>**Type:** `boolean`<br>**Possible values:** `true` or `false`<br> **Default value:** `true`                                                                                     |
-| `updateInterval `          | How often the data is updated. (Milliseconds)<br>**Type:** `integer`<br>**Default value:** `30 * 60 * 1000` (Half hour)                                                                                                                                         |
-| `overrideCityDisplayName ` | Override the city's display name with this value.<br>**Type:** `string` or `null`<br>**Default value:** `null`                                                                                                                                                  |
-| `initialLoadDelay`         | The initial delay before loading. If you have multiple modules that use the same API key, you might want to delay one of the requests. (Milliseconds)<br>**Type:** `integer`<br>**Possible values:** `1000` - `5000` <br> **Default value:** `0`                |
-| `animationSpeed`           | Speed of the update animation. (Milliseconds)<br>**Type:** `integer`<br>**Possible values:**`0` - `5000` <br> **Default value:** `1000` (1 second)                                                                                                              |
-| `debug`                    | Show debug information.<br>**Type:** `boolean`<br>**Possible values:** `true` or `false` <br> **Default value:** `false`                                                                                                                                        |
+| Option                     | Description |
+| -------------------------- | ----------- |
+| `token`                    | **Required.** Your private API token ([see aqicn.org/data-platform/token/](https://aqicn.org/data-platform/token/))<br>**Type:** `string` |
+| `city`                     | **Required.** Name of the city (e.g., `Beijing`), station id (e.g., `A7397`), or `here` to let WAQI infer your city via geolocation.<br>**Type:** `string`<br>**Default:** `here` |
+| `iaqi`                     | Show individual AQI rows for pollutants (PM2.5, PM10, NO₂, CO, SO₂, O₃).<br>**Type:** `boolean`<br>**Default:** `true` |
+| `weather`                  | Include temperature, humidity, pressure, and wind rows (when provided by WAQI).<br>**Type:** `boolean`<br>**Default:** `false` |
+| `units`                    | Unit system for weather rows.<br>**Type:** `string`<br>**Possible values:** `metric`, `imperial`<br>**Default:** `metric` |
+| `maxEntries`               | Maximum IAQI rows to render (useful if the API returns many pollutants).<br>**Type:** `integer`<br>**Default:** `10` |
+| `showLastUpdate`           | Display the timestamp of the last successful update.<br>**Type:** `boolean`<br>**Default:** `true` |
+| `overrideCityDisplayName`  | Force a custom label for the city instead of the API-provided name.<br>**Type:** `string \| null`<br>**Default:** `null` |
+| `updateInterval`           | How often to refresh the AQI data (milliseconds).<br>**Type:** `integer`<br>**Default:** `30 * 60 * 1000` (30 minutes) |
+| `initialLoadDelay`         | Delay the very first API request (milliseconds). Helpful when sharing API tokens between modules.<br>**Type:** `integer`<br>**Default:** `0` |
+| `animationSpeed`           | Duration of DOM update animations (milliseconds).<br>**Type:** `integer`<br>**Default:** `1000` |
+| `debug`                    | Log detailed information (API URLs, responses, etc.) to the MagicMirror console.<br>**Type:** `boolean`<br>**Default:** `false` |
 
 Here is an example of an entry in `config.js`
 
 ```js
-		{
-			module: 'MMM-AQI',
-			position: 'bottom_left',
-			header: 'Air Quality Index (AQI)',
-			config: {
-				token: "",
-				city: "here",
-				iaqi: true,
-				updateInterval: 30 * 60 * 1000, // Every half hour.
-				initialLoadDelay: 0,
-				animationSpeed: 1000,
-				debug: false
-			}
-		},
+	{
+		module: "MMM-AQI",
+		position: "bottom_left",
+		header: "Air Quality Index (AQI)",
+		config: {
+			token: "YOUR_TOKEN",
+			city: "here",
+			iaqi: true,
+			weather: true,
+			units: "metric",
+			maxEntries: 6,
+			showLastUpdate: true,
+			overrideCityDisplayName: null,
+			updateInterval: 30 * 60 * 1000,
+			initialLoadDelay: 0,
+			animationSpeed: 1000,
+			debug: false
+		}
+	},
 ```
 
 ## Find your city

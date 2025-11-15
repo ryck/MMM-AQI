@@ -1,0 +1,36 @@
+{
+	"LOADING": "Cargando índice de calidad del aire (AQI)...",
+	"AQI": "Calidad del aire",
+	"LAST_UPDATE": "Última actualización",
+	"NO_DATA_AVAILABLE": "No hay datos de AQI disponibles",
+	"CONNECTION_ERROR": "No se pudo conectar al servicio de AQI",
+	"API_ERROR": "Error del servicio de AQI",
+
+	"CONFIG_ERROR_NO_TOKEN": "Configura tu token de API en los ajustes del módulo",
+	"CONFIG_ERROR_NO_CITY": "Especifica una ciudad en la configuración del módulo",
+	"CONFIG_ERROR_UPDATE_INTERVAL": "El intervalo de actualización debe ser de al menos 60 segundos",
+
+	"GOOD": "Bueno",
+	"MODERATE": "Moderado",
+	"UNHEALTHY_SENSITIVE": "Insalubre para grupos sensibles",
+	"UNHEALTHY": "Insalubre",
+	"VERY_UNHEALTHY": "Muy insalubre",
+	"HAZARDOUS": "Peligroso",
+
+	"IAQI_PM25": "PM2.5",
+	"IAQI_PM25_DESC": "partículas finas",
+	"IAQI_PM10": "PM10",
+	"IAQI_PM10_DESC": "partículas gruesas",
+	"IAQI_O3": "O₃",
+	"IAQI_O3_DESC": "ozono",
+	"IAQI_NO2": "NO₂",
+	"IAQI_NO2_DESC": "dióxido de nitrógeno",
+	"IAQI_SO2": "SO₂",
+	"IAQI_SO2_DESC": "dióxido de azufre",
+	"IAQI_CO": "CO",
+	"IAQI_CO_DESC": "monóxido de carbono",
+	"IAQI_T": "Temperatura",
+	"IAQI_H": "Humedad",
+	"IAQI_P": "Presión",
+	"IAQI_W": "Velocidad del viento"
+}

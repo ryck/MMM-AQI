@@ -1,0 +1,36 @@
+{
+	"LOADING": "Chargement de l'indice de qualité de l'air (AQI)...",
+	"AQI": "Qualité de l'air",
+	"LAST_UPDATE": "Dernière mise à jour",
+	"NO_DATA_AVAILABLE": "Aucune donnée AQI disponible",
+	"CONNECTION_ERROR": "Impossible de se connecter au service AQI",
+	"API_ERROR": "Erreur du service AQI",
+
+	"CONFIG_ERROR_NO_TOKEN": "Configure ton jeton API dans les paramètres du module",
+	"CONFIG_ERROR_NO_CITY": "Indique une ville dans la configuration du module",
+	"CONFIG_ERROR_UPDATE_INTERVAL": "L'intervalle de mise à jour doit être d'au moins 60 secondes",
+
+	"GOOD": "Bon",
+	"MODERATE": "Modéré",
+	"UNHEALTHY_SENSITIVE": "Nocif pour les groupes sensibles",
+	"UNHEALTHY": "Nocif",
+	"VERY_UNHEALTHY": "Très nocif",
+	"HAZARDOUS": "Dangereux",
+
+	"IAQI_PM25": "PM2.5",
+	"IAQI_PM25_DESC": "particules fines",
+	"IAQI_PM10": "PM10",
+	"IAQI_PM10_DESC": "grosses particules",
+	"IAQI_O3": "O₃",
+	"IAQI_O3_DESC": "ozone",
+	"IAQI_NO2": "NO₂",
+	"IAQI_NO2_DESC": "dioxyde d'azote",
+	"IAQI_SO2": "SO₂",
+	"IAQI_SO2_DESC": "dioxyde de soufre",
+	"IAQI_CO": "CO",
+	"IAQI_CO_DESC": "monoxyde de carbone",
+	"IAQI_T": "Température",
+	"IAQI_H": "Humidité",
+	"IAQI_P": "Pression",
+	"IAQI_W": "Vitesse du vent"
+}

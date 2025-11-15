@@ -1,0 +1,36 @@
+{
+	"LOADING": "Loading Air Quality Index (AQI)...",
+	"AQI": "Air Quality",
+	"LAST_UPDATE": "Last update",
+	"NO_DATA_AVAILABLE": "No AQI data available",
+	"CONNECTION_ERROR": "Unable to connect to AQI service",
+	"API_ERROR": "AQI service error",
+
+	"CONFIG_ERROR_NO_TOKEN": "Please configure your API token in the module settings",
+	"CONFIG_ERROR_NO_CITY": "Please specify a city in the module configuration",
+	"CONFIG_ERROR_UPDATE_INTERVAL": "Update interval must be at least 60 seconds",
+
+	"GOOD": "Good",
+	"MODERATE": "Moderate",
+	"UNHEALTHY_SENSITIVE": "Unhealthy for Sensitive Groups",
+	"UNHEALTHY": "Unhealthy",
+	"VERY_UNHEALTHY": "Very Unhealthy",
+	"HAZARDOUS": "Hazardous",
+
+	"IAQI_PM25": "PM2.5",
+	"IAQI_PM25_DESC": "fine particles",
+	"IAQI_PM10": "PM10",
+	"IAQI_PM10_DESC": "coarse particles",
+	"IAQI_O3": "O₃",
+	"IAQI_O3_DESC": "ozone",
+	"IAQI_NO2": "NO₂",
+	"IAQI_NO2_DESC": "nitrogen dioxide",
+	"IAQI_SO2": "SO₂",
+	"IAQI_SO2_DESC": "sulfur dioxide",
+	"IAQI_CO": "CO",
+	"IAQI_CO_DESC": "carbon monoxide",
+	"IAQI_T": "Temperature",
+	"IAQI_H": "Humidity",
+	"IAQI_P": "Pressure",
+	"IAQI_W": "Wind Speed"
+}

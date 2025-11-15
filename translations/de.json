@@ -1,0 +1,36 @@
+{
+	"LOADING": "Lade Luftqualitätsindex (AQI)...",
+	"AQI": "Luftqualität",
+	"LAST_UPDATE": "Letzte Aktualisierung",
+	"NO_DATA_AVAILABLE": "Keine AQI-Daten verfügbar",
+	"CONNECTION_ERROR": "Verbindung zum AQI-Dienst fehlgeschlagen",
+	"API_ERROR": "Fehler beim AQI-Dienst",
+
+	"CONFIG_ERROR_NO_TOKEN": "Bitte konfiguriere deinen API-Token in den Moduleinstellungen",
+	"CONFIG_ERROR_NO_CITY": "Bitte gib in der Modulkonfiguration eine Stadt an",
+	"CONFIG_ERROR_UPDATE_INTERVAL": "Das Aktualisierungsintervall muss mindestens 60 Sekunden betragen",
+
+	"GOOD": "Gut",
+	"MODERATE": "Mäßig",
+	"UNHEALTHY_SENSITIVE": "Ungesund für empfindliche Gruppen",
+	"UNHEALTHY": "Ungesund",
+	"VERY_UNHEALTHY": "Sehr ungesund",
+	"HAZARDOUS": "Gefährlich",
+
+	"IAQI_PM25": "PM2.5",
+	"IAQI_PM25_DESC": "feine Partikel",
+	"IAQI_PM10": "PM10",
+	"IAQI_PM10_DESC": "grobe Partikel",
+	"IAQI_O3": "O₃",
+	"IAQI_O3_DESC": "Ozon",
+	"IAQI_NO2": "NO₂",
+	"IAQI_NO2_DESC": "Stickstoffdioxid",
+	"IAQI_SO2": "SO₂",
+	"IAQI_SO2_DESC": "Schwefeldioxid",
+	"IAQI_CO": "CO",
+	"IAQI_CO_DESC": "Kohlenmonoxid",
+	"IAQI_T": "Temperatur",
+	"IAQI_H": "Luftfeuchtigkeit",
+	"IAQI_P": "Luftdruck",
+	"IAQI_W": "Windgeschwindigkeit"
+}

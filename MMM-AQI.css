@@ -1,40 +1,146 @@
+/* MMM-AQI.css */
+
+/* City and AQI display */
 .city,
 .aqi,
-.iaqi {
-  text-align: right;
-}
-.city:before {
-  font-family: "weathericons";
-  content: "\f041";
-  padding-right: 5px;
+.level {
+	text-align: right;
+	padding: 2px 5px;
 }
 
-.city.moderate:before {
-  content: "\f062";
+.city {
+	text-align: left;
+	font-weight: 500;
 }
-.city.unhealthy-sensitive:before,
-.city.unhealthy:before,
-.city.very-unhealthy:before {
-  content: "\f074";
+
+/* Weather icons */
+.city .wi {
+	padding-right: 8px;
+	font-size: 1.1em;
 }
-.city.hazardous:before {
-  content: "\f071";
+
+/* AQI Level Colors */
+.aqi.good,
+.pollutant-value.good,
+.city.good .wi,
+.level.good {
+	color: #009966;
 }
-.aqi.good {
-  color: #009966;
+
+.aqi.moderate,
+.pollutant-value.moderate,
+.city.moderate .wi,
+.level.moderate {
+	color: #ffde33;
 }
-.aqi.moderate {
-  color: #ffde33;
+
+.aqi.unhealthy-sensitive,
+.pollutant-value.unhealthy-sensitive,
+.city.unhealthy-sensitive .wi,
+.level.unhealthy-sensitive {
+	color: #ff9933;
 }
-.aqi.unhealthy-sensitive {
-  color: #ff9933;
+
+.aqi.unhealthy,
+.pollutant-value.unhealthy,
+.city.unhealthy .wi,
+.level.unhealthy {
+	color: #cc0033;
 }
-.aqi.unhealthy {
-  color: #cc0033;
+
+.aqi.very-unhealthy,
+.pollutant-value.very-unhealthy,
+.city.very-unhealthy .wi,
+.level.very-unhealthy {
+	color: #660099;
 }
-.aqi.very-unhealthy {
-  color: #660099;
+
+.aqi.hazardous,
+.pollutant-value.hazardous,
+.city.hazardous .wi,
+.level.hazardous {
+	color: #7e0023;
 }
-.aqi.hazardous {
-  color: #7e0023;
+
+/* IAQI (Individual Air Quality Index) */
+.iaqi-key,
+.iaqi-value {
+	text-align: right;
+	padding: 1px 5px;
+	opacity: 0.8;
+}
+
+.iaqi-key {
+	text-align: left;
+	font-size: 0.9em;
+}
+
+.iaqi-value {
+	font-weight: 500;
+}
+
+/* Weather data styling */
+.weather-data {
+	opacity: 0.6;
+	font-style: italic;
+}
+
+/* Descriptive text for pollutants */
+.iaqi-desc {
+	font-size: 0.8em;
+	opacity: 0.6;
+	font-weight: normal;
+}
+
+/* Last update timestamp */
+.last-update {
+	text-align: right;
+	padding-top: 5px;
+	font-style: italic;
+	font-size: 0.6em;
+}
+
+/* Compact mode adjustments */
+.mmm-aqi-wrapper table.xsmall {
+	font-size: 0.75em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 400px) {
+	.mmm-aqi-wrapper {
+		font-size: 0.9em;
+	}
+
+	.level {
+		display: none; /* Hide level text on small screens */
+	}
+}
+
+/* Animation for updates */
+.mmm-aqi-wrapper table {
+	transition: opacity 0.3s ease-in-out;
+}
+
+/* Error states */
+.mmm-aqi-wrapper .error {
+	color: #ff6b6b;
+	font-style: italic;
+}
+
+/* Loading state */
+.mmm-aqi-wrapper .loading {
+	opacity: 0.6;
+	animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+	0% {
+		opacity: 0.6;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0.6;
+	}
 }
